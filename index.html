@@ -95,7 +95,8 @@
   .detail-box__risk { padding: 12px 16px; background: #1a1210; border: 1px solid #3a2a1a; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #c2956a; }
 
   /* OPTION CARDS */
-  .options-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  #options-container { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  #options-container .option-detail { flex-basis: 100%; }
   .option-card {
     cursor: pointer; border: 1px solid #2a2a2c; padding: 24px;
     background: transparent; transition: all 0.4s ease; text-align: left;
@@ -243,7 +244,6 @@
     <h2 class="section-label">The Mission Sequence</h2>
     <p class="section-sub">Six phases. The operation shifts from kinetic tempo to technical discipline at phase five — and that transition is where most things can go wrong. Select a phase.</p>
     <div id="phases-container"></div>
-    <div id="phase-detail"></div>
   </div>
 
   <div class="separator"></div>
@@ -253,8 +253,7 @@
     <h2 class="section-label">The Trilemma</h2>
     <p style="font-size:15px;line-height:1.7;color:#9a968e;margin-bottom:8px">Once you control the site, you face three options for the uranium hexafluoride. None are good — they represent different families of tradeoff, not different levels of difficulty.</p>
     <p class="section-sub">Select an option to compare its risk dimensions.</p>
-    <div class="options-grid" id="options-container"></div>
-    <div id="option-detail"></div>
+    <div id="options-container"></div>
   </div>
 
   <div class="separator"></div>
@@ -412,8 +411,8 @@ function toggleMEU() {
 }
 
 function renderPhases() {
-  document.getElementById('phases-container').innerHTML = PHASES.map((p, i) => `
-    <button class="phase-btn ${i === activePhase ? 'active' : ''}" onclick="setPhase(${i})">
+  document.getElementById('phases-container').innerHTML = PHASES.map((p, i) => {
+    let html = `<button class="phase-btn ${i === activePhase ? 'active' : ''}" onclick="setPhase(${i})">
       <span class="phase-btn__icon">${p.icon}</span>
       <div>
         <div class="phase-btn__head">
@@ -422,57 +421,54 @@ function renderPhases() {
         </div>
         <div class="phase-btn__sub">${p.subtitle}</div>
       </div>
-    </button>
-  `).join('');
-
-  document.getElementById('phase-detail').innerHTML = `
-    <div class="detail-box">
-      <p class="detail-box__text">${PHASES[activePhase].detail}</p>
-      <div class="detail-box__risk">⚠ ${PHASES[activePhase].risk}</div>
-    </div>`;
+    </button>`;
+    if (i === activePhase) {
+      html += `<div class="detail-box">
+        <p class="detail-box__text">${p.detail}</p>
+        <div class="detail-box__risk">⚠ ${p.risk}</div>
+      </div>`;
+    }
+    return html;
+  }).join('');
 }
 
 function setPhase(i) { activePhase = i; renderPhases(); }
 
 function renderOptions() {
-  document.getElementById('options-container').innerHTML = OPTIONS.map((o, i) => `
-    <div class="option-card ${activeOption === i ? 'active' : ''}" onclick="setOption(${i})"
+  document.getElementById('options-container').innerHTML = OPTIONS.map((o, i) => {
+    let html = `<div class="option-card ${activeOption === i ? 'active' : ''}" onclick="setOption(${i})"
          style="${activeOption === i ? 'border-color:' + o.color + '88' : ''}">
       <div class="option-card__num" style="color:${o.color}">Option ${i+1}</div>
       <div class="option-card__title">${o.title}</div>
       <div class="option-card__action">${o.action}</div>
-    </div>
-  `).join('');
-
-  const el = document.getElementById('option-detail');
-  if (activeOption === null) { el.innerHTML = ''; return; }
-  const o = OPTIONS[activeOption];
-
-  const dims = `<div class="dim-grid">${DIMENSIONS.map(d => {
-    const v = o.scores[d.key];
-    const c = v > 70 ? '#c23616' : v > 45 ? '#c2956a' : '#5a8a5a';
-    return `<div class="dim-row"><span class="dim-label">${d.label}</span><div class="dim-bar"><div class="dim-fill" style="width:${v}%;background:${c}"></div></div></div>`;
-  }).join('')}</div>`;
-
-  el.innerHTML = `
-    <div class="option-detail" style="border-color:${o.color}33">
-      ${dims}
-      <div class="procon">
-        <div class="procon__col">
-          <div class="procon__label" style="color:#5a8a5a">What it achieves</div>
-          ${o.pros.map(p => `<div class="procon__item"><span style="color:#5a8a5a;flex-shrink:0">+</span>${p}</div>`).join('')}
-        </div>
-        <div class="procon__col">
-          <div class="procon__label" style="color:${o.color}">What can go wrong</div>
-          ${o.cons.map(c => `<div class="procon__item"><span style="color:${o.color};flex-shrink:0">−</span>${c}</div>`).join('')}
-        </div>
-      </div>
-      <div class="procon__verdict" style="border-left-color:${o.color}66">${o.verdict}</div>
-      <div class="procon__failure">
-        <div class="procon__failure-label">Failure mode</div>
-        ${o.failure}
-      </div>
     </div>`;
+    if (activeOption === i) {
+      const dims = `<div class="dim-grid">${DIMENSIONS.map(d => {
+        const v = o.scores[d.key];
+        const c = v > 70 ? '#c23616' : v > 45 ? '#c2956a' : '#5a8a5a';
+        return `<div class="dim-row"><span class="dim-label">${d.label}</span><div class="dim-bar"><div class="dim-fill" style="width:${v}%;background:${c}"></div></div></div>`;
+      }).join('')}</div>`;
+      html += `<div class="option-detail" style="border-color:${o.color}33">
+        ${dims}
+        <div class="procon">
+          <div class="procon__col">
+            <div class="procon__label" style="color:#5a8a5a">What it achieves</div>
+            ${o.pros.map(p => `<div class="procon__item"><span style="color:#5a8a5a;flex-shrink:0">+</span>${p}</div>`).join('')}
+          </div>
+          <div class="procon__col">
+            <div class="procon__label" style="color:${o.color}">What can go wrong</div>
+            ${o.cons.map(c => `<div class="procon__item"><span style="color:${o.color};flex-shrink:0">−</span>${c}</div>`).join('')}
+          </div>
+        </div>
+        <div class="procon__verdict" style="border-left-color:${o.color}66">${o.verdict}</div>
+        <div class="procon__failure">
+          <div class="procon__failure-label">Failure mode</div>
+          ${o.failure}
+        </div>
+      </div>`;
+    }
+    return html;
+  }).join('');
 }
 
 function setOption(i) { activeOption = activeOption === i ? null : i; renderOptions(); }
