@@ -28,8 +28,6 @@
   }
 
   .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
-  .mono { font-family: 'JetBrains Mono', monospace; }
-  .sans { font-family: 'DM Sans', sans-serif; }
 
   .separator {
     width: 100%; height: 1px;
@@ -43,7 +41,6 @@
   .header__title { font-size: clamp(28px, 5vw, 44px); line-height: 1.15; font-weight: 700; color: #e8e4dc; margin-bottom: 20px; max-width: 750px; }
   .header__dek { font-size: 17px; line-height: 1.7; color: #9a968e; max-width: 680px; font-style: italic; }
 
-  /* SECTION LABELS */
   .section-label { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #8b7355; margin-bottom: 20px; }
   .section-label--red { color: #c23616; }
   .section-sub { font-size: 14px; color: #6a6a6c; margin-bottom: 28px; font-family: 'DM Sans', sans-serif; }
@@ -54,12 +51,18 @@
   .meu-banner__head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
   .meu-banner__body { margin-top: 16px; font-size: 14px; line-height: 1.75; color: #9a968e; font-family: 'DM Sans', sans-serif; }
   .meu-banner__body p { margin-bottom: 12px; }
-  .meu-banner__note { color: #6a6a6c; font-size: 12px; font-family: 'JetBrains Mono', monospace; }
 
   .tag { display: inline-block; padding: 3px 10px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid; font-family: 'JetBrains Mono', monospace; }
   .tag--red { color: #c23616; border-color: #c23616; }
-
   .toggle-arrow { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6a6a6c; }
+
+  .meu-grid { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+  .meu-col { flex: 1; min-width: 240px; padding: 16px; border: 1px solid; }
+  .meu-col--helps { border-color: #2a3a2a; background: #0e120e; }
+  .meu-col--limits { border-color: #3a2a1a; background: #120e0a; }
+  .meu-col__label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+  .meu-col__item { font-family: 'DM Sans', sans-serif; font-size: 12px; color: #9a968e; padding: 6px 0; line-height: 1.5; display: flex; gap: 8px; }
+  .meu-reading { margin-top: 16px; padding: 14px 18px; border: 1px solid #2a2a2c; background: #111113; font-family: 'DM Sans', sans-serif; font-size: 13px; color: #9a968e; line-height: 1.7; }
 
   /* SITES */
   .sites-grid { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -103,15 +106,22 @@
   .option-card__num { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
   .option-card__title { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; color: #e8e4dc; margin-bottom: 8px; }
   .option-card__action { font-family: 'DM Sans', sans-serif; font-size: 12px; color: #6a6a6c; line-height: 1.5; }
-  .risk-bar { height: 3px; background: #1a1a1c; margin-top: 8px; border-radius: 2px; overflow: hidden; }
-  .risk-fill { height: 100%; transition: width 0.6s ease; width: 0; }
+
+  /* DIMENSION BARS */
+  .dim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; margin-bottom: 24px; }
+  .dim-row { display: flex; align-items: center; gap: 10px; }
+  .dim-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6a6a6c; letter-spacing: 0.5px; min-width: 120px; text-transform: uppercase; }
+  .dim-bar { flex: 1; height: 4px; background: #1a1a1c; border-radius: 2px; overflow: hidden; }
+  .dim-fill { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
 
   /* PRO/CON */
   .procon { display: flex; gap: 32px; flex-wrap: wrap; }
   .procon__col { flex: 1; min-width: 240px; }
   .procon__label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
   .procon__item { font-family: 'DM Sans', sans-serif; font-size: 13px; color: #9a968e; padding: 8px 0; border-bottom: 1px solid #1a1a1c; line-height: 1.5; display: flex; gap: 10px; }
-  .procon__verdict { margin-top: 24px; padding: 16px 20px; background: #111113; font-family: 'DM Sans', sans-serif; font-size: 13px; color: #b8b4ac; line-height: 1.6; font-style: italic; border-left-width: 3px; border-left-style: solid; }
+  .procon__verdict { margin-top: 20px; padding: 16px 20px; background: #111113; font-family: 'DM Sans', sans-serif; font-size: 13px; color: #b8b4ac; line-height: 1.6; font-style: italic; border-left-width: 3px; border-left-style: solid; }
+  .procon__failure { margin-top: 12px; padding: 14px 18px; background: #1a1210; border: 1px solid #3a2a1a; font-family: 'DM Sans', sans-serif; font-size: 12px; color: #c2956a; line-height: 1.6; }
+  .procon__failure-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #8a6a4a; margin-bottom: 6px; }
 
   .option-detail { animation: fadeIn 0.4s ease; padding: 28px; background: #0e0e10; border: 1px solid; }
 
@@ -127,6 +137,13 @@
   .crit-box strong { color: #e8e4dc; }
   .crit-box__quote { padding: 14px 18px; background: #1a1210; border: 1px solid #4a2a1a; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #c2956a; line-height: 1.6; }
   .crit-box__attr { color: #6a5a4a; font-size: 11px; }
+
+  /* SYNTHESIS */
+  .synth-box { padding: 20px; background: #111113; border: 1px solid #2a2a2c; margin-bottom: 12px; }
+  .synth-box__label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b7355; font-weight: 500; margin-bottom: 6px; }
+  .synth-box__text { font-family: 'DM Sans', sans-serif; font-size: 14px; color: #b8b4ac; line-height: 1.6; }
+  .synth-conclusion { padding: 24px; border: 1px solid #3a3a2c; background: #13120f; margin-top: 16px; }
+  .synth-conclusion p { font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.8; color: #b8b4ac; }
 
   /* BOTTOM */
   .bottom-box { padding: 32px; border: 1px solid #2a2a2c; background: #0e0e10; }
@@ -149,12 +166,13 @@
     .procon { flex-direction: column; }
     .options-grid { flex-direction: column; }
     .sites-grid { flex-direction: column; }
+    .meu-grid { flex-direction: column; }
+    .dim-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header__kicker">Strategic Analysis · March 2026</div>
   <h1 class="header__title">Seizing Iran's Uranium: The Physics of an Impossible Operation</h1>
@@ -164,17 +182,32 @@
 <div class="container">
   <div class="separator"></div>
 
-  <!-- MEU BANNER -->
+  <!-- MEU with helps/limits -->
   <div class="meu-banner" onclick="toggleMEU()">
     <div class="meu-banner__head">
       <span class="tag tag--red">Developing</span>
-      <span class="sans" style="font-size:14px;font-weight:600;color:#e8e4dc">Pentagon deploying Marine Expeditionary Unit to Middle East</span>
+      <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#e8e4dc">Pentagon deploying Marine Expeditionary Unit to Middle East</span>
       <span class="toggle-arrow" id="meu-arrow">▸</span>
     </div>
     <div class="meu-banner__body hidden" id="meu-body">
-      <p>A Marine Expeditionary Unit (~2,500 Marines and sailors) is being sent to the Middle East, per CNN and the Wall Street Journal. MEUs are rapid-response forces designed for large-scale evacuations, amphibious operations, ship-to-shore raids and assaults. They include ground and aviation combat components, and some units are trained for special operations.</p>
-      <p>While the Trump administration says there are "no current plans" for ground troops in Iran, they have <span class="accent">refused to rule it out</span>. The MEU gives commanders additional options for a range of contingencies.</p>
-      <p class="meu-banner__note">An MEU is not a nuclear seizure force — but it is the kind of unit that secures perimeters, holds airfields, and provides the logistics backbone for exactly the kind of operation described below.</p>
+      <p>A Marine Expeditionary Unit (~2,500 Marines and sailors) is being sent to the Middle East, per CNN and the Wall Street Journal. MEUs are rapid-response forces designed for large-scale evacuations, amphibious operations, ship-to-shore raids and assaults. They include ground and aviation combat components, and some units are trained for special operations. The Trump administration says there are "no current plans" for ground troops in Iran but has <span class="accent">refused to rule it out</span>.</p>
+      <div class="meu-grid">
+        <div class="meu-col meu-col--helps">
+          <div class="meu-col__label" style="color:#5a8a5a">What an MEU adds</div>
+          <div class="meu-col__item"><span style="color:#5a8a5a">+</span> Staging and forward basing capacity closer to Iran</div>
+          <div class="meu-col__item"><span style="color:#5a8a5a">+</span> Ship-to-shore movement for equipment and personnel</div>
+          <div class="meu-col__item"><span style="color:#5a8a5a">+</span> Perimeter security and airfield seizure capability</div>
+          <div class="meu-col__item"><span style="color:#5a8a5a">+</span> Broader contingency menu for regional commanders</div>
+        </div>
+        <div class="meu-col meu-col--limits">
+          <div class="meu-col__label" style="color:#c2956a">What it doesn't solve</div>
+          <div class="meu-col__item"><span style="color:#c2956a">−</span> The 500km+ deep-inland penetration problem</div>
+          <div class="meu-col__item"><span style="color:#c2956a">−</span> Nuclear-material handling expertise</div>
+          <div class="meu-col__item"><span style="color:#c2956a">−</span> Tunnel access and underground engineering</div>
+          <div class="meu-col__item"><span style="color:#c2956a">−</span> The chemical and radiological hazards of the material itself</div>
+        </div>
+      </div>
+      <div class="meu-reading">A MEU meaningfully widens the menu of military responses in the region — it strengthens staging, crisis response, and support capacity. But it does not turn an extremely demanding nuclear-seizure concept into a routine, executable raid. The hardest problems in this scenario begin after forces reach the material.</div>
     </div>
   </div>
 
@@ -205,21 +238,21 @@
 
   <div class="separator"></div>
 
-  <!-- OPERATION PHASES -->
+  <!-- 6 PHASES -->
   <div style="margin-bottom:48px">
-    <h2 class="section-label">The Operation</h2>
-    <p class="section-sub">Four phases, each harder than the last. Select a phase to explore.</p>
+    <h2 class="section-label">The Mission Sequence</h2>
+    <p class="section-sub">Six phases. The operation shifts from kinetic tempo to technical discipline at phase five — and that transition is where most things can go wrong. Select a phase.</p>
     <div id="phases-container"></div>
     <div id="phase-detail"></div>
   </div>
 
   <div class="separator"></div>
 
-  <!-- TRILEMMA -->
+  <!-- TRILEMMA with dimensions -->
   <div style="margin-bottom:48px">
     <h2 class="section-label">The Trilemma</h2>
-    <p style="font-size:15px;line-height:1.7;color:#9a968e;margin-bottom:8px">Once you control the site, you face three options for the uranium hexafluoride. None are good.</p>
-    <p class="section-sub">Select an option to see its full risk profile.</p>
+    <p style="font-size:15px;line-height:1.7;color:#9a968e;margin-bottom:8px">Once you control the site, you face three options for the uranium hexafluoride. None are good — they represent different families of tradeoff, not different levels of difficulty.</p>
+    <p class="section-sub">Select an option to compare its risk dimensions.</p>
     <div class="options-grid" id="options-container"></div>
     <div id="option-detail"></div>
   </div>
@@ -228,42 +261,69 @@
 
   <!-- CHEMISTRY -->
   <div style="margin-bottom:48px">
-    <h2 class="section-label">The Chemistry That Makes It Lethal</h2>
+    <h2 class="section-label">The Chemistry That Constrains Every Option</h2>
     <div class="chem-row">
       <div class="chem-row__formula" style="color:#8b7355">UF₆</div>
       <div>
         <div class="chem-row__name">Uranium Hexafluoride</div>
-        <div class="chem-row__desc">The form in which enriched uranium is stored. Gaseous when heated, solid at room temperature. Highly reactive with moisture.</div>
+        <div class="chem-row__desc">The chemical form of enriched uranium in the stockpile. Solid at room temperature; it sublimes to gas when heated — the form used during enrichment and processing. Highly reactive with moisture. Its dual solid/gas nature is part of what makes handling unpredictable under field conditions.</div>
       </div>
     </div>
     <div class="chem-row">
       <div class="chem-row__formula" style="color:#c23616">HF</div>
       <div>
         <div class="chem-row__name">Hydrogen Fluoride</div>
-        <div class="chem-row__desc">Released when UF₆ is dispersed. Penetrates skin on contact, destroys tissue, attacks bone calcium. Lethal in small concentrations in enclosed spaces.</div>
+        <div class="chem-row__desc">Released when UF₆ contacts moisture or is dispersed into ambient air. Penetrates skin on contact, destroys tissue, attacks bone calcium. Dangerous at low concentrations, particularly lethal in enclosed underground spaces with poor ventilation.</div>
       </div>
     </div>
     <div class="chem-row">
       <div class="chem-row__formula" style="color:#e1b12c">UO₂F₂</div>
       <div>
         <div class="chem-row__name">Uranyl Fluoride</div>
-        <div class="chem-row__desc">Forms when moisture contacts UF₆ during transport. Toxic and radioactive solid. The reaction is exothermic — generates heat that can cause container rupture.</div>
+        <div class="chem-row__desc">Forms when moisture contacts UF₆ — the primary transport risk. Toxic and radioactive solid. The reaction is exothermic: it generates heat, and in a sealed or partially sealed cylinder this can cause dangerous pressure buildup.</div>
       </div>
     </div>
   </div>
 
   <div class="separator"></div>
 
-  <!-- CRITICALITY -->
+  <!-- CRITICALITY — calibrated -->
   <div style="margin-bottom:48px">
-    <h2 class="section-label section-label--red">The Hidden Danger: Criticality</h2>
+    <h2 class="section-label section-label--red">The Hidden Constraint: Criticality</h2>
     <div class="crit-box">
-      <p>The 19 cylinders of UF₆ are kept physically separated by piping infrastructure. This isn't just plumbing — <strong>the geometry of the arrangement is the safety system</strong>. If enough fissile material is brought together in the wrong configuration, it reaches criticality: an uncontrolled, self-sustaining nuclear chain reaction.</p>
-      <p>This isn't a nuclear detonation — but it produces a lethal burst of neutron and gamma radiation that would kill anyone nearby within hours or days. Special forces teams that don't understand this and begin dismantling piping to access cylinders could trigger exactly this event.</p>
+      <p>The ~19 cylinders of UF₆ are kept physically separated by piping infrastructure. This isn't just plumbing — <strong>the geometry of the arrangement is part of the safety architecture</strong>. If enough fissile material is brought together in an unfavourable configuration, it could reach criticality: an uncontrolled, self-sustaining nuclear chain reaction.</p>
+      <p>A criticality event is not a nuclear detonation. But it can produce an intense burst of neutron and gamma radiation — potentially lethal to anyone in the immediate vicinity. The risk is not inevitable, but it is the kind of risk that demands technical understanding to manage. Special forces teams working in the storage area need to know which structures are load-bearing for safety, not just for the building.</p>
       <div class="crit-box__quote">
         "The special ops team MUST understand that the piping structures must not be removed."
         <br><span class="crit-box__attr">— Cheryl Rofer, former nuclear researcher, Los Alamos National Laboratory</span>
       </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- SYNTHESIS -->
+  <div style="margin-bottom:48px">
+    <h2 class="section-label">The Problem, Decomposed</h2>
+    <p class="section-sub">Strip away the drama and the operation reduces to four stacked problems. Each depends on the one above it.</p>
+    <div class="synth-box">
+      <div class="synth-box__label">Problem A</div>
+      <div class="synth-box__text">Reach a buried, previously bombed, inland site and physically open it.</div>
+    </div>
+    <div class="synth-box">
+      <div class="synth-box__label">Problem B</div>
+      <div class="synth-box__text">Keep enough military force around it, long enough, for slow technical work to proceed.</div>
+    </div>
+    <div class="synth-box">
+      <div class="synth-box__label">Problem C</div>
+      <div class="synth-box__text">Choose between three bad families of end-state — dispersal, on-site processing, or risky removal — each with different residual problems.</div>
+    </div>
+    <div class="synth-box">
+      <div class="synth-box__label">Problem D</div>
+      <div class="synth-box__text">Leave with an outcome that is genuinely better, not just theatrically impressive.</div>
+    </div>
+    <div class="synth-conclusion">
+      <p>This is why <em>"people are going to have to go and get it"</em> sounds simple as a political sentence but expands, operationally, into one of the most demanding combinations imaginable: <strong style="color:#e8e4dc">deep raid + tunnel access + temporary area control + hazardous-material handling + credible strategic end-state</strong>. Performing it at all three sites would be one of the largest special-operations raids in military history.</p>
     </div>
   </div>
 
@@ -276,11 +336,10 @@
       <blockquote>"There's no doubt that the US can do it. They're probably the only military in the world that could. But you either do it incredibly small and insert in a very covert way, or you go in at scale — you essentially turn that part of Iran into the United States of America for a while."</blockquote>
       <div class="bottom-box__attr">— Former Western military chief</div>
       <div class="separator" style="margin:28px 0"></div>
-      <p class="bottom-box__text">Even a tactically "successful" operation doesn't end with capturing the building. The material itself poses a set of problems with no clean solution — only tradeoffs between contamination, time exposure, transport risk, and whether you've truly eliminated the threat or merely transformed it into a different kind of hazard. Performing this at all three sites would amount to one of the largest raids in military history. The deployment of a Marine Expeditionary Unit to the region suggests contingency planning is underway — but the gap between planning and execution, in this case, is filled with uranium hexafluoride.</p>
+      <p class="bottom-box__text">Even a tactically successful operation doesn't end with capturing the building. The material itself imposes constraints that have no clean solution — only tradeoffs between contamination, time exposure, transport risk, and the fundamental question of whether the end-state is genuinely better than the status quo. The deployment of a Marine Expeditionary Unit to the region suggests contingency planning is underway. But the gap between planning and execution, in this case, is filled with uranium hexafluoride.</p>
     </div>
   </div>
 
-  <!-- SOURCES -->
   <div class="sources">
     <div class="sources__label">Sources</div>
     <div class="sources__text">The Economist, March 2026 · CNN, March 13 2026 · Wall Street Journal · IAEA (Rafael Grossi) · IISS (Daniel Salisbury) · Harvard Kennedy School (Matthew Bunn) · Bulletin of the Atomic Scientists (François Diaz-Maurin) · Los Alamos (Cheryl Rofer)</div>
@@ -288,45 +347,63 @@
 </div>
 
 <script>
-// DATA
 const PHASES = [
-  { id:"locate", num:"01", title:"Locate the Material", subtitle:"Where is the HEU?",
-    detail:"Iran's ~400kg stockpile of highly enriched uranium — enough for roughly ten nuclear weapons if enriched further — is spread across multiple sites. The IAEA confirmed on March 9th that HEU is \"mainly\" at Isfahan in central Iran, with additional material at Natanz and Fordow. Isfahan's tunnel entrances were sealed with dirt in February 2025. Fordow is buried deep inside a mountain, bombed last June. Even knowing the locations, the material may have been moved, hidden in smaller caches, or redistributed since the last IAEA inspections.",
-    risk:"Intelligence gaps — material may have been moved since last verified", icon:"◎" },
-  { id:"access", num:"02", title:"Get There & Get In", subtitle:"500km+ into hostile territory",
-    detail:"Isfahan lies at least 500km inland from the Persian Gulf. MH-47G Chinooks from the 160th SOAR could reach it, but would need mid-air refuelling to return. Before any ground insertion, Trump has stated Iran must be \"so decimated that they wouldn't be able to fight on the ground level.\" This means massive preliminary airstrikes on Iranian bases near the target. Airborne forces would then need to seize a nearby airfield (Badr airbase, 10km away) or create a makeshift airstrip, then parachute in heavy equipment: nuclear-handling gear, diggers to clear rubble from sealed tunnel entrances, and combat engineering tools.",
-    risk:"Enormous logistical exposure — air corridors, refuelling, airstrip security", icon:"⬡" },
-  { id:"secure", num:"03", title:"Hold the Perimeter", subtitle:"A battalion-scale occupation",
-    detail:"At minimum, ~1,000 troops must hold a defensive perimeter around each nuclear complex — potentially for days. They need constant air cover: real-time satellite imagery, loitering drones, recon planes, and strike aircraft. This requires a massive fleet of refuelling tankers to keep air power aloft continuously. Israel's special forces and combat engineers have relevant tunnel experience from Hamas and Hezbollah operations, but would need to borrow American cargo planes. America's JSOC has trained for exactly this scenario — practising seizure of nuclear weapons in deep underground shelters at a Nevada test site — but rehearsal time would be needed.",
-    risk:"Extended ground exposure in hostile territory with stretched supply lines", icon:"⬢" },
-  { id:"handle", num:"04", title:"Handle the HEU", subtitle:"The most dangerous phase",
-    detail:"The uranium hexafluoride (UF₆) is stored as gas in approximately 19 scuba-type cylinders, deliberately kept apart by piping infrastructure to prevent accidental criticality — an uncontrolled chain reaction. The piping is itself a safety system: if special ops teams remove or rearrange it without understanding this, they could bring enough fissile material together to trigger a criticality event, producing a lethal radiation burst. Every option for dealing with the material carries severe risks.",
-    risk:"Criticality accident if containment geometry is disturbed", icon:"⚛" }
+  { id:"locate", num:"01", title:"Locate the Stockpile", subtitle:"Which site, which tunnel, which compartment?",
+    detail:"The first problem is not assault but certainty. Iran's ~400kg of HEU — enough for roughly ten weapons if enriched further — is spread across Isfahan, Natanz, and Fordow. The IAEA confirmed on March 9th that HEU is \"mainly\" at Isfahan, whose tunnel entrances were sealed with dirt in February. Fordow is buried deep inside a mountain, bombed last June. But which specific compartments hold material, in what physical condition after bombing and sealing, and whether stockpiles have been moved since the last inspections — those are intelligence questions, not military ones.",
+    risk:"Intelligence gaps — material may have been moved, split, or redistributed since last verified", icon:"◎" },
+  { id:"suppress", num:"02", title:"Suppress the Battlespace", subtitle:"The raid is impossible in a functioning air-defence environment",
+    detail:"A ground operation hundreds of kilometres inland cannot proceed against intact Iranian air defences, artillery, and reinforcement routes. Trump has stated Iran must be \"so decimated that they wouldn't be able to fight on the ground level.\" In practice this means sustained strikes on Iranian military bases, radar sites, and logistics infrastructure near the target — potentially for days before ground forces arrive. The strike campaign itself signals the operation, narrowing the window of surprise.",
+    risk:"Extended air campaign telegraphs the ground operation; Iran may relocate material", icon:"✦" },
+  { id:"access", num:"03", title:"Create Access", subtitle:"Open sealed tunnels with heavy engineering",
+    detail:"If tunnel entrances are sealed by dirt, rubble, or prior strikes, the force needs engineering support: digging equipment, route clearance, and time. Airborne forces would need to seize a nearby airfield — Badr airbase is 10km from Isfahan's nuclear sites — or create a makeshift airstrip. Nuclear-handling equipment, diggers, and heavy machinery could then be parachuted in on pallets. This pushes the mission away from 'elite commando raid' toward a combined-arms temporary occupation of the immediate area.",
+    risk:"Engineering timeline exposed to counterattack; airstrip/airfield is a fixed, targetable position", icon:"⬡" },
+  { id:"secure", num:"04", title:"Hold the Perimeter", subtitle:"A battalion-scale holding operation, potentially for days",
+    detail:"At minimum, ~1,000 troops must defend each nuclear complex while engineers and nuclear specialists work inside. They need constant air cover: real-time satellite imagery, loitering drones, recon planes, and strike aircraft — all requiring a fleet of refuelling tankers to stay aloft continuously. Israel's combat engineers have relevant tunnel experience from Hamas and Hezbollah operations but would need American cargo planes. America's JSOC has trained for this at a Nevada test site, but specific rehearsal for Iranian site layouts would need months of preparation.",
+    risk:"Extended ground exposure with stretched supply lines; force ratio deteriorates over time", icon:"⬢" },
+  { id:"handle", num:"05", title:"Handle the Nuclear Material", subtitle:"The mission shifts from kinetic tempo to technical discipline",
+    detail:"This is where speed becomes the enemy. The UF₆ is held in approximately 19 specialised cylinders — solid at ambient temperature, it becomes gaseous when heated during processing. The cylinders are deliberately kept apart by piping infrastructure to prevent accidental criticality. That piping is itself a safety system: removing or rearranging it without understanding the criticality geometry could, in a worst case, bring enough fissile material into an unfavourable configuration. Every option for the material — destruction, downblending, extraction — carries its own hazard profile. The operation shifts from a commando problem to a nuclear-material management problem inside a war zone.",
+    risk:"Criticality risk if containment geometry is disturbed; chemical hazards from any UF₆ release", icon:"⚛" },
+  { id:"exit", num:"06", title:"Exfiltrate with a Usable Outcome", subtitle:"A tactical success can still become a strategic mess",
+    detail:"Exfiltration is where a dramatic raid can still fail. Destroying the material leaves contamination and ambiguity about what was actually neutralised. Downblending requires sustained occupation. Extraction means transporting chemically reactive cylinders through hostile territory by air. And all of this must be repeated at each site. The force needs to leave with an end-state that actually resolves the proliferation problem — not just dramatic footage. The gap between kinetic success and strategic success is where operations like this historically go wrong.",
+    risk:"Ambiguous end-state; political narrative of 'victory' may not match technical reality on the ground", icon:"◇" }
+];
+
+const DIMENSIONS = [
+  { key:"tactical", label:"Tactical difficulty" },
+  { key:"chemical", label:"Chemical hazard" },
+  { key:"recovery", label:"Recovery burden" },
+  { key:"footprint", label:"Force footprint" },
+  { key:"proliferation", label:"Residual prolif. risk" },
+  { key:"duration", label:"Time on objective" }
 ];
 
 const OPTIONS = [
-  { id:"destroy", title:"Destroy in Place", action:"Detonate explosives to disperse the UF₆",
-    pros:["Immediate denial of material to Iran","No transport risk","Fastest option"],
-    cons:["UF₆ deposits on walls, rocks, rubble — potentially recoverable over time","Releases hydrogen fluoride (HF) — extremely toxic, penetrates skin, lethal in small doses","Creates long-term radioactive contamination zone","Own forces in confined underground space face extreme chemical hazard"],
-    verdict:"Solves the immediate problem but creates a chemical weapons event underground and leaves recoverable traces.",
+  { id:"destroy", title:"Destroy in Place", action:"Detonate explosives to disperse the UF₆ and deny its use",
+    scores:{ tactical:35, chemical:92, recovery:88, footprint:42, proliferation:61, duration:28 },
+    pros:["Requires less delicate handling of cylinders and piping","Minimises time spent physically inside the nuclear complex","Suits a denial-focused operation rather than a clean seizure"],
+    cons:["Dispersed UF₆ deposits on walls, rubble, equipment — potentially recoverable over time","Releases hydrogen fluoride in confined underground spaces — severe toxic hazard to own forces","Converts a contained inventory into contamination spread across the site","Does not guarantee all material is neutralised or irrecoverable"],
+    verdict:"Achieves immediate denial but creates a toxic dispersal event underground and leaves material that Iran could, with great effort and time, attempt to recover.",
+    failure:"The force achieves a dramatic strike but inherits a contamination field, chemical plume, and lasting ambiguity about what was actually destroyed versus dispersed.",
     severity:3, color:"#c23616" },
-  { id:"downblend", title:"Downblend On-Site", action:"Mix HEU with depleted uranium to reduce enrichment below weapons-grade",
-    pros:["Technically elegant — proven method (US-Russia Megatons to Megawatts program)","Permanently reduces proliferation risk","No transport of weapons-grade material"],
-    cons:["Requires trucking heavy industrial equipment through hostile Iranian territory","Complex chemical process requiring expertise and time (days, not hours)","Still leaves nuclear material on site, just at lower enrichment","Troops must hold perimeter for extended period during processing"],
-    verdict:"The cleanest technical solution but logistically near-impossible in a contested military operation.",
+  { id:"downblend", title:"Downblend On-Site", action:"Dilute HEU with depleted uranium to reduce it below weapons-grade",
+    scores:{ tactical:78, chemical:54, recovery:62, footprint:81, proliferation:25, duration:86 },
+    pros:["Directly attacks the weapons-value of the material — proven method (US-Russia Megatons to Megawatts)","Avoids deliberate large-scale dispersal of UF₆","Could produce the most defensible technical outcome if executed properly"],
+    cons:["Requires trucking or airlifting specialised equipment through hostile territory","Complex chemical process needing expertise, power, time (days, not hours), and procedural stability","Still leaves nuclear material on site, just at lower enrichment","Troops must hold perimeter for an extended period during processing"],
+    verdict:"Technically the cleanest solution, but it requires the one thing a deep raid can't guarantee: time in a stable, controlled environment.",
+    failure:"The force secures the site but cannot sustain a safe industrial process long enough before the tactical situation deteriorates.",
     severity:2, color:"#e1b12c" },
-  { id:"extract", title:"Extract & Remove", action:"Load cylinders onto aircraft and fly them out of Iran",
-    pros:["Complete removal of all fissile material","Best nonproliferation outcome","Denies Iran any possibility of recovery"],
-    cons:["Moisture entering cylinders produces uranyl fluoride (toxic, radioactive) and hydrofluoric acid gas (lethally corrosive)","Exothermic reaction could cause pressure buildup and explosion","19+ heavy cylinders requiring careful handling under time pressure","Any cylinder breach during helicopter/aircraft transport is catastrophic"],
-    verdict:"The ideal outcome, but the transport chemistry makes every cylinder a potential bomb.",
+  { id:"extract", title:"Extract & Remove", action:"Seize cylinders intact, preserve spacing discipline, fly them out",
+    scores:{ tactical:91, chemical:73, recovery:22, footprint:89, proliferation:12, duration:74 },
+    pros:["Complete removal of fissile material from Iranian control","Best nonproliferation outcome if successful","Provides the clearest political and strategic victory narrative"],
+    cons:["If moisture enters cylinders during transport, UF₆ hydrolysis produces uranyl fluoride and hydrofluoric acid gas","Exothermic reaction could cause pressure buildup and container rupture","19+ heavy cylinders requiring precise handling under extreme time pressure","Demands exact knowledge of storage layout, piping, and cylinder condition"],
+    verdict:"The ideal outcome on paper, but transport imposes chemical and physical risks on every cylinder — and any single failure during airlift has severe consequences.",
+    failure:"The raid reaches the stockpile but safe extraction collapses under time pressure, tunnel damage, transport constraints, or cylinder breach in transit.",
     severity:3, color:"#c23616" }
 ];
 
-// STATE
 let activePhase = 0;
 let activeOption = null;
 
-// MEU TOGGLE
 function toggleMEU() {
   const body = document.getElementById('meu-body');
   const arrow = document.getElementById('meu-arrow');
@@ -334,10 +411,8 @@ function toggleMEU() {
   arrow.textContent = body.classList.contains('hidden') ? '▸' : '▾';
 }
 
-// RENDER PHASES
 function renderPhases() {
-  const container = document.getElementById('phases-container');
-  container.innerHTML = PHASES.map((p, i) => `
+  document.getElementById('phases-container').innerHTML = PHASES.map((p, i) => `
     <button class="phase-btn ${i === activePhase ? 'active' : ''}" onclick="setPhase(${i})">
       <span class="phase-btn__icon">${p.icon}</span>
       <div>
@@ -354,34 +429,34 @@ function renderPhases() {
     <div class="detail-box">
       <p class="detail-box__text">${PHASES[activePhase].detail}</p>
       <div class="detail-box__risk">⚠ ${PHASES[activePhase].risk}</div>
-    </div>
-  `;
+    </div>`;
 }
 
-function setPhase(i) {
-  activePhase = i;
-  renderPhases();
-}
+function setPhase(i) { activePhase = i; renderPhases(); }
 
-// RENDER OPTIONS
 function renderOptions() {
-  const container = document.getElementById('options-container');
-  container.innerHTML = OPTIONS.map((o, i) => `
+  document.getElementById('options-container').innerHTML = OPTIONS.map((o, i) => `
     <div class="option-card ${activeOption === i ? 'active' : ''}" onclick="setOption(${i})"
          style="${activeOption === i ? 'border-color:' + o.color + '88' : ''}">
       <div class="option-card__num" style="color:${o.color}">Option ${i+1}</div>
       <div class="option-card__title">${o.title}</div>
       <div class="option-card__action">${o.action}</div>
-      <div class="risk-bar"><div class="risk-fill" style="width:${activeOption === i ? o.severity*33 : 0}%;background:${o.color}"></div></div>
     </div>
   `).join('');
 
-  const detailEl = document.getElementById('option-detail');
-  if (activeOption === null) { detailEl.innerHTML = ''; return; }
-
+  const el = document.getElementById('option-detail');
+  if (activeOption === null) { el.innerHTML = ''; return; }
   const o = OPTIONS[activeOption];
-  detailEl.innerHTML = `
+
+  const dims = `<div class="dim-grid">${DIMENSIONS.map(d => {
+    const v = o.scores[d.key];
+    const c = v > 70 ? '#c23616' : v > 45 ? '#c2956a' : '#5a8a5a';
+    return `<div class="dim-row"><span class="dim-label">${d.label}</span><div class="dim-bar"><div class="dim-fill" style="width:${v}%;background:${c}"></div></div></div>`;
+  }).join('')}</div>`;
+
+  el.innerHTML = `
     <div class="option-detail" style="border-color:${o.color}33">
+      ${dims}
       <div class="procon">
         <div class="procon__col">
           <div class="procon__label" style="color:#5a8a5a">What it achieves</div>
@@ -393,16 +468,15 @@ function renderOptions() {
         </div>
       </div>
       <div class="procon__verdict" style="border-left-color:${o.color}66">${o.verdict}</div>
-    </div>
-  `;
+      <div class="procon__failure">
+        <div class="procon__failure-label">Failure mode</div>
+        ${o.failure}
+      </div>
+    </div>`;
 }
 
-function setOption(i) {
-  activeOption = activeOption === i ? null : i;
-  renderOptions();
-}
+function setOption(i) { activeOption = activeOption === i ? null : i; renderOptions(); }
 
-// INIT
 renderPhases();
 renderOptions();
 </script>
